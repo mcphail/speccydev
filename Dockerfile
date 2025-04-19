@@ -22,6 +22,7 @@ RUN apt-get update \
 	fuse-emulator-utils\
 	make \
 	pasmo \
+	zmakebas \
 	&& rm -rf /var/lib/apt/lists/*
 COPY --from=build /usr/local/bin/sjasmplus /bin/sjasmplus
 COPY --from=build /ttttt/ttttt /bin/ttttt
