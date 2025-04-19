@@ -24,6 +24,8 @@ RUN apt-get update \
 	make \
 	openssh-client\
 	pasmo \
+	z80asm \
+	z80dasm \
 	zmakebas \
 	&& rm -rf /var/lib/apt/lists/*
 COPY --from=build /usr/local/bin/sjasmplus /bin/sjasmplus
