@@ -22,6 +22,7 @@ RUN apt-get update \
 	fuse-emulator-utils\
 	git \
 	make \
+	openssh-client\
 	pasmo \
 	zmakebas \
 	&& rm -rf /var/lib/apt/lists/*
