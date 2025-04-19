@@ -1,0 +1,3 @@
+#! /bin/bash
+# From https://stackoverflow.com/questions/54055666/docker-hub-and-git-submodules/59640438#59640438
+git submodule update --init
