@@ -1,0 +1,110 @@
+{
+    "configurations": [
+        {
+            "type": "dezog",
+            "request": "launch",
+            "name": "Simulator - ZX81 56k RAM",
+            "remoteType": "zsim",
+            "zsim": {
+                "visualMemory": true,
+                "preset": "zx81",
+                "memoryModel": "ZX81-56K"
+            },
+            "sjasmplus": [
+                {
+                    "path": "myprog.sld"
+                }
+            ],
+            "commandsAfterLaunch": [],
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": true
+            },
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "load": "myprog.p"
+        },
+        {
+            "type": "dezog",
+            "request": "launch",
+            "name": "Simulator - ZX128K Spectrum",
+            "remoteType": "zsim",
+            "zsim": {
+                "visualMemory": true,
+                "preset": "spectrum",
+                "memoryModel": "ZX128K"
+            },
+            "sjasmplus": [
+                {
+                    "path": "myprog.sld"
+                }
+            ],
+            "commandsAfterLaunch": [],
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": true
+            },
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "load": "myprog.sna",
+            "topOfStack": "0x5d58"
+        },
+        {
+            "type": "dezog",
+            "request": "launch",
+            "name": "CSpect",
+            "remoteType": "cspect",
+            "sjasmplus": [
+                {
+                    "path": "myprog.sld"
+                }
+            ],
+            "commandsAfterLaunch": [],
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": false
+            },
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "load": "myprog.sna",
+            "topOfStack": "0x5d58",
+            "cspect": {
+                "hostname": "host.docker.internal"
+            },
+            "linux": {
+                "cspect": {
+                    "hostname": "localhost"
+                }
+            }
+        },
+    {
+        "type": "dezog",
+        "request": "launch",
+        "name": "Simulator - ZX48K Spectrum",
+        "remoteType": "zsim",
+        "zsim": {
+            "visualMemory": true,
+            "preset": "spectrum",
+            "memoryModel": "ZX48K"
+        },
+        "sjasmplus": [
+            {
+                "path": "myprog.sld"
+            }
+        ],
+        "commandsAfterLaunch": [],
+        "history": {
+            "reverseDebugInstructionCount": 1000000,
+            "spotCount": 10,
+            "codeCoverageEnabled": true
+        },
+        "startAutomatically": false,
+        "rootFolder": "${workspaceFolder}",
+        "load": "myprog.sna",
+        "topOfStack": "0x5d58"
+    }
+    ]
+}

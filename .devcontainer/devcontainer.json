@@ -1,0 +1,21 @@
+{
+	"name": "ZX Spectrum dev tools",
+	"image": "boarstone.mcphail.uk/mcphail/speccydev",
+	"remoteUser": "ubuntu",
+	"runArgs": [
+		"--network=host"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"maziac.dezog",
+				"maziac.asm-code-lens",
+				"maziac.z80-instruction-set",
+				"maziac.hex-hover-converter",
+				"maziac.sna-fileviewer",
+				"maziac.nex-fileviewer",
+				"ms-vscode.makefile-tools"
+			]
+		}
+	}
+}
