@@ -72,12 +72,8 @@
             "load": "myprog.sna",
             "topOfStack": "0x5d58",
             "cspect": {
+                // Change "host.docker.internal" to "localhost" if running on Linux
                 "hostname": "host.docker.internal"
-            },
-            "linux": {
-                "cspect": {
-                    "hostname": "localhost"
-                }
             }
         },
     {
