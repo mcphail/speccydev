@@ -8,7 +8,7 @@ The devcontainer contains:
 - z80asm (assembler)
 - z80dasm (disassembler)
 - zmakebas (creates BASIC programs)
-- z88dk (C compiler and other utilities includeing assembler)
+- z88dk (C compiler and other utilities including assembler)
 - utilities from the FUSE emulator:
     - audio2tape
     - createhdf
