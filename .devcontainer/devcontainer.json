@@ -1,6 +1,6 @@
 {
 	"name": "ZX Spectrum dev tools",
-	"image": "boarstone.mcphail.uk/mcphail/speccydev",
+	"build": { "dockerfile": "Dockerfile" },
 	"remoteUser": "ubuntu",
 	"runArgs": [
 		"--network=host"
