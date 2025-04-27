@@ -1,5 +1,7 @@
 # syntax=docker/dockerfile:1
 
+FROM z88dk/z88dk:latest as z88dk
+
 FROM ubuntu:24.04 AS build
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -32,3 +34,7 @@ COPY --from=build /usr/local/bin/sjasmplus /bin/sjasmplus
 COPY --from=build /ttttt/ttttt /bin/ttttt
 COPY --from=build /zx0/src/zx0 /bin/zx0
 COPY --from=build /zx0/src/dzx0 /bin/dzx0
+COPY --from=z88dk /opt/z88dk /opt/z88dk
+USER ubuntu
+RUN echo "PATH=$PATH:/opt/z88dk/bin" >> ~/.profile
+RUN echo "ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
