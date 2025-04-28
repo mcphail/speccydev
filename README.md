@@ -29,6 +29,10 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
+- ZX BASIC (aka Boriel BASIC)
+    - zxbc (BASIC compiler)
+    - zxbasm (assembler)
+    - zxbpp (preprocessor)
 - ttttt (converts binaries into .tap blocks)
 - git (version control)
 - make (build control)

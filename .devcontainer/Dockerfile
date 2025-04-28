@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM z88dk/z88dk:latest as z88dk
+FROM z88dk/z88dk:latest AS z88dk
 
 FROM ubuntu:24.04 AS build
 RUN apt-get update \
@@ -17,6 +17,8 @@ ADD https://github.com/einar-saukas/ZX0.git /zx0
 RUN cd /zx0/src/ \
 	&& gcc -O2 -o zx0 zx0.c optimize.c compress.c memory.c \
 	&& gcc -O2 -o dzx0 dzx0.c
+ADD https://www.boriel.com/files/zxb/zxbasic-1.18.1-linux64.tar.gz .
+RUN tar xf zxbasic*
 
 FROM ubuntu:24.04
 RUN apt-get update \
@@ -26,6 +28,7 @@ RUN apt-get update \
 	make \
 	openssh-client\
 	pasmo \
+	python3 \
 	z80asm \
 	z80dasm \
 	zmakebas \
@@ -34,7 +37,11 @@ COPY --from=build /usr/local/bin/sjasmplus /bin/sjasmplus
 COPY --from=build /ttttt/ttttt /bin/ttttt
 COPY --from=build /zx0/src/zx0 /bin/zx0
 COPY --from=build /zx0/src/dzx0 /bin/dzx0
+COPY --from=build /zxbasic/zxbasm.py /opt/zxbasic/zxbasm
+COPY --from=build /zxbasic/zxbc.py /opt/zxbasic/zxbc
+COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
+COPY --from=build /zxbasic/src /opt/zxbasic/src
 COPY --from=z88dk /opt/z88dk /opt/z88dk
 USER ubuntu
-RUN echo "PATH=$PATH:/opt/z88dk/bin" >> ~/.profile
+RUN echo "PATH=$PATH:/opt/z88dk/bin:/opt/zxbasic" >> ~/.profile
 RUN echo "ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
