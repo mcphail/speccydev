@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM z88dk/z88dk:latest AS z88dk
+#FROM z88dk/z88dk:latest AS z88dk
 
 FROM ubuntu:24.04 AS build
 RUN apt-get update \
@@ -41,7 +41,8 @@ COPY --from=build /zxbasic/zxbasm.py /opt/zxbasic/zxbasm
 COPY --from=build /zxbasic/zxbc.py /opt/zxbasic/zxbc
 COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
 COPY --from=build /zxbasic/src /opt/zxbasic/src
-COPY --from=z88dk /opt/z88dk /opt/z88dk
+#COPY --from=z88dk /opt/z88dk /opt/z88dk
 USER ubuntu
-RUN echo "PATH=$PATH:/opt/z88dk/bin:/opt/zxbasic" >> ~/.profile
-RUN echo "ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
+#RUN echo "PATH=$PATH:/opt/z88dk/bin:/opt/zxbasic" >> ~/.profile
+#RUN echo "export ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
+RUN echo "PATH=$PATH:/opt/zxbasic" >> ~/.profile
