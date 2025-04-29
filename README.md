@@ -1,6 +1,6 @@
 # Development tools for the ZX Spectrum
 
-The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools.
+The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
 The devcontainer contains:
 - pasmo (assembler)
@@ -8,7 +8,7 @@ The devcontainer contains:
 - z80asm (assembler)
 - z80dasm (disassembler)
 - zmakebas (creates BASIC programs)
-- ~~z88dk (C compiler and other utilities including assembler)~~ - not currently functional
+- z88dk (C compiler and other utilities including assembler)
 - utilities from the FUSE emulator:
     - audio2tape
     - createhdf

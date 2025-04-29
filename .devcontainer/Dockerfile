@@ -1,7 +1,5 @@
 # syntax=docker/dockerfile:1
 
-#FROM z88dk/z88dk:latest AS z88dk
-
 FROM ubuntu:24.04 AS build
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -20,13 +18,57 @@ RUN cd /zx0/src/ \
 ADD https://www.boriel.com/files/zxb/zxbasic-1.18.1-linux64.tar.gz .
 RUN tar xf zxbasic*
 
+FROM build AS z88dk
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+	bison \
+	ca-certificates \
+	ccache \
+	cpanminus \
+	curl \
+	dos2unix \
+	flex \
+	gdb \
+	git \
+	libboost-all-dev \
+	libcapture-tiny-perl \
+	libclone-perl \
+	libdata-hexdump-perl \
+	libfile-slurp-perl \
+	libgmp3-dev \
+	liblocal-lib-perl \
+	libmodern-perl-perl \
+	libpath-tiny-perl \
+	libregexp-common-perl \
+	libtext-table-perl \
+	libxml2-dev \
+	libyaml-perl \
+	m4 \
+	perl \
+	pkg-config \
+	ragel \
+	re2c \
+	texi2html \
+	texinfo \
+	zlib1g-dev \
+	&& rm -rf /var/lib/apt/lists/*
+ENV Z88DK_PATH="/opt/z88dk"
+RUN cpanm -l $HOME/perl5 --no-wget local::lib Template::Plugin::YAML \
+	&& git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
+	&& cd ${Z88DK_PATH} \ 
+	&& eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
+	&& chmod 777 build.sh \
+	&& BUILD_SDCC=1 BUILD_SDCC_HTTP=1 ./build.sh \
+	&& make install-clean bins-clean 
+
 FROM ubuntu:24.04
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-	fuse-emulator-utils\
+	ca-certificates \
+	fuse-emulator-utils \
 	git \
 	make \
-	openssh-client\
+	openssh-client \
 	pasmo \
 	python3 \
 	z80asm \
@@ -41,8 +83,10 @@ COPY --from=build /zxbasic/zxbasm.py /opt/zxbasic/zxbasm
 COPY --from=build /zxbasic/zxbc.py /opt/zxbasic/zxbc
 COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
 COPY --from=build /zxbasic/src /opt/zxbasic/src
-#COPY --from=z88dk /opt/z88dk /opt/z88dk
+COPY --from=z88dk /opt/z88dk/bin /opt/z88dk/bin
+COPY --from=z88dk /opt/z88dk/lib /opt/z88dk/lib
+ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic"
+ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu
-#RUN echo "PATH=$PATH:/opt/z88dk/bin:/opt/zxbasic" >> ~/.profile
-#RUN echo "export ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
-RUN echo "PATH=$PATH:/opt/zxbasic" >> ~/.profile
+RUN echo "PATH=$PATH:/opt/z88dk/bin:/opt/zxbasic" >> ~/.profile
+RUN echo "export ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
