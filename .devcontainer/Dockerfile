@@ -85,6 +85,7 @@ COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
 COPY --from=build /zxbasic/src /opt/zxbasic/src
 COPY --from=z88dk /opt/z88dk/bin /opt/z88dk/bin
 COPY --from=z88dk /opt/z88dk/lib /opt/z88dk/lib
+COPY --from=z88dk /opt/z88dk/include /opt/z88dk/include
 ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic"
 ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu
