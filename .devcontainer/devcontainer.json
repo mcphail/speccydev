@@ -16,7 +16,8 @@
 				"maziac.hex-hover-converter",
 				"maziac.sna-fileviewer",
 				"maziac.nex-fileviewer",
-				"ms-vscode.makefile-tools"
+				"ms-vscode.makefile-tools",
+				"jsjlogin.zxbasic"
 			]
 		}
 	}
