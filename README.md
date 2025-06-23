@@ -50,6 +50,8 @@ Make sure docker (or your alternative) is running before trying to use the devco
 
 ## Usage
 
+![A terminal window running the commands outlined below](res/speccydev.gif)
+
 Open a terminal and navigate to the directory which will contain your Spectrum projects. Run `git clone https://github.com/mcphail/speccydev.git your_project_name` and enter that directory. Start vscode by running `code .` inside the directory.
 
 If you have installed the Dev Containers extension correctly, a popup will offer to reload the project within a devcontainer. Go ahead and allow this. The first time you use this devcontainer, it may take a few minutes to download and start. It should open more quickly on subsequent use.
