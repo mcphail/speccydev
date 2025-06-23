@@ -60,5 +60,6 @@ When you are ready to start your own project, run `make start_new_project` to wi
 
 ## Debugging
 
-Debug in the built in simulator or in CSpect externally (example CSpect invocation on Windows would be `CSpect.exe -w2 -debug -remote`).
+Debug in the built in simulator or in CSpect externally (example CSpect invocation on Windows would be `CSpect.exe -w2 -debug -remote`). The simulator is set up to expect a binary called `myprog.sna` and a map file called `myprog.sld` but this can be configured in the `.vscode/launch.json` file.
+
 *Note: to use CSpect debugging from a Linux host you will have to edit the file `.vscode/launch.json` to change the `"hostname"` parameter to `"localhost"`*
