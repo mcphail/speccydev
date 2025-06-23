@@ -1,0 +1,5 @@
+10 CLS
+20 FOR i = 0 TO 23
+30 PRINT "ZX Spectrum Rules OK!"
+40 NEXT i
+50 PAUSE 0
