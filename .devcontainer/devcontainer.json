@@ -17,7 +17,8 @@
 				"maziac.sna-fileviewer",
 				"maziac.nex-fileviewer",
 				"ms-vscode.makefile-tools",
-				"jsjlogin.zxbasic"
+				"jsjlogin.zxbasic",
+				"thenestruo.z80-asm-meter"
 			]
 		}
 	}
