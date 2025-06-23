@@ -7,4 +7,12 @@ clean:
 	rm -f *.sld
 	rm -rf .tmp/
 
-.PHONY: clean
+start_new_project:
+	make clean
+	rm -rf .git
+	git init -b main
+	git add .devcontainer/ .vscode/ .gitignore
+	git commit -m "New project"
+	rm -rf *
+
+.PHONY: clean start_new_project
