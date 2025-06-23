@@ -40,11 +40,11 @@ The devcontainer contains:
 ## Install
 
 This devcontainer should work in Windows, Linux and MacOS. It is recommended to install:
-    - git, then configure user name and email address
-    - docker, or alternative like podman
-    - (Windows only, optional) Windows Subsystem for Linux, version 2
-    - Microsoft's vscode
-    - the "Dev Containers" extension (from Microsoft) within vscode
+- git, then configure user name and email address
+- docker, or alternative like podman
+- (Windows only, optional) Windows Subsystem for Linux, version 2
+- Microsoft's vscode
+- the "Dev Containers" extension (from Microsoft) within vscode
 
 Make sure docker (or your alternative) is running before trying to use the devcontainer.
 
