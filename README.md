@@ -37,6 +37,10 @@ The devcontainer contains:
 - git (version control)
 - make (build control)
 
+Several useful VSCode extentsions will be installed, including a Z80 assembly language server, Z80 and C debugger, Makefile support, BASIC syntax highlighter and more.
+
+Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
+
 ## Install
 
 This devcontainer should work in Windows, Linux and MacOS. It is recommended to install:
