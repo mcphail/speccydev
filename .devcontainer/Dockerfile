@@ -5,10 +5,11 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	build-essential \
 	make \
+	unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
 ADD https://github.com/z00m128/sjasmplus.git#v1.21.0 /sjasmplus
-RUN cd /sjasmplus && make && make install
+RUN cd /sjasmplus && make -j8 && make install
 ADD https://boarstone.mcphail.uk/mcphail/spectrum_remload.git /ttttt
 RUN cd /ttttt && make ttttt
 ADD https://github.com/einar-saukas/ZX0.git /zx0
@@ -17,6 +18,9 @@ RUN cd /zx0/src/ \
 	&& gcc -O2 -o dzx0 dzx0.c
 ADD https://www.boriel.com/files/zxb/zxbasic-1.18.1-linux64.tar.gz .
 RUN tar xf zxbasic*
+ADD https://github.com/Mastodon-/inpaws.git /inpaws
+RUN cd /inpaws/ \
+	&& make -j8
 
 FROM build AS z88dk
 RUN apt-get update \
@@ -58,6 +62,7 @@ RUN cpanm -l $HOME/perl5 --no-wget local::lib Template::Plugin::YAML \
 	&& cd ${Z88DK_PATH} \ 
 	&& eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
 	&& chmod 777 build.sh \
+	&& sed -i -e "s/make/make -j8/g" build.sh \
 	&& BUILD_SDCC=1 BUILD_SDCC_HTTP=1 ./build.sh \
 	&& make install-clean bins-clean 
 
@@ -83,6 +88,7 @@ COPY --from=build /zxbasic/zxbasm.py /opt/zxbasic/zxbasm
 COPY --from=build /zxbasic/zxbc.py /opt/zxbasic/zxbc
 COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
 COPY --from=build /zxbasic/src /opt/zxbasic/src
+COPY --from=build /inpaws/inpaws /bin/inpaws
 COPY --from=z88dk /opt/z88dk/bin /opt/z88dk/bin
 COPY --from=z88dk /opt/z88dk/lib /opt/z88dk/lib
 COPY --from=z88dk /opt/z88dk/include /opt/z88dk/include
