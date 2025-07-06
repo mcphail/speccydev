@@ -34,6 +34,7 @@ The devcontainer contains:
     - zxbasm (assembler)
     - zxbpp (preprocessor)
 - ttttt (converts binaries into .tap blocks)
+- inpaws (interactive fiction compiler/extractor for Gilsoft's PAW)
 - git (version control)
 - make (build control)
 
@@ -69,3 +70,17 @@ When you are ready to start your own project, run `make start_new_project` to wi
 Debug in the built in simulator or in CSpect externally (example CSpect invocation on Windows would be `CSpect.exe -w2 -debug -remote`). The simulator is set up to expect a binary called `myprog.sna` and a map file called `myprog.sld` but this can be configured in the `.vscode/launch.json` file.
 
 *Note: to use CSpect debugging from a Linux host you will have to edit the file `.vscode/launch.json` to change the `"hostname"` parameter to `"localhost"`*
+
+## Licences
+
+pamso - copyright Julián Albo and released under the GPL
+sjasmplus - copyright aprisobal and released under BSD 3-clause
+z80asm - copyright Bas Wijnen and released under GPL v3 or later
+z80dasm - copyright Jan Panteltje and Tomaz Solc and released under GPL v2
+zmakebas - placed under Public Domain by Russell Marks
+z88dk - copyright the z88dk authors and released under the Clarified Artistic License
+FUSE utilities - copyright Philip Kendall and contributors and released under GPL v2
+zx0 and dzx0 - copyright Einar Saukas and released under BSD 3-clause
+Boriel BASIC - copyleft Jose Rodriguez-Rosa and released under AGPL v3 and portions under MIT
+ttttt - placed under Public Domain by Neil McPhail
+inpaws - copyright "Mastodon" and released under GPL v3
