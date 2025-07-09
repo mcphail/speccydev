@@ -35,6 +35,23 @@ The devcontainer contains:
     - zxbpp (preprocessor)
 - ttttt (converts binaries into .tap blocks)
 - inpaws (interactive fiction compiler/extractor for Gilsoft's PAW)
+- skoolkit (tools for creating browseable disassemblies of Spectrum games)
+    - sna2ctl.py
+    - sna2skool.py
+    - skool2html.py
+    - skool2asm.py
+    - skool2ctl.py
+    - skool2bin.py
+    - tap2sna.py
+    - snapinfo.py
+    - trace.py
+    - rzxplay.py
+    - tapinfo.py
+    - rzxinfo.py
+    - bin2tap.py
+    - bin2sna.py
+    - snapmod.py
+    - sna2img.py
 - git (version control)
 - make (build control)
 
@@ -74,13 +91,25 @@ Debug in the built in simulator or in CSpect externally (example CSpect invocati
 ## Licences
 
 pamso - copyright Julián Albo and released under the GPL
+
 sjasmplus - copyright aprisobal and released under BSD 3-clause
+
 z80asm - copyright Bas Wijnen and released under GPL v3 or later
+
 z80dasm - copyright Jan Panteltje and Tomaz Solc and released under GPL v2
+
 zmakebas - placed under Public Domain by Russell Marks
+
 z88dk - copyright the z88dk authors and released under the Clarified Artistic License
+
 FUSE utilities - copyright Philip Kendall and contributors and released under GPL v2
+
 zx0 and dzx0 - copyright Einar Saukas and released under BSD 3-clause
+
 Boriel BASIC - copyleft Jose Rodriguez-Rosa and released under AGPL v3 and portions under MIT
+
 ttttt - placed under Public Domain by Neil McPhail
+
 inpaws - copyright "Mastodon" and released under GPL v3
+
+skoolkit - copyright Richard Dymond and Philip M Anderson and released under GPL v3 or later

@@ -5,6 +5,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	build-essential \
 	make \
+	python3-pip \
 	unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -21,6 +22,7 @@ RUN tar xf zxbasic*
 ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \
 	&& make -j8
+RUN python3 -m pip install --break-system-packages skoolkit
 
 FROM build AS z88dk
 RUN apt-get update \
@@ -89,6 +91,8 @@ COPY --from=build /zxbasic/zxbc.py /opt/zxbasic/zxbc
 COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
 COPY --from=build /zxbasic/src /opt/zxbasic/src
 COPY --from=build /inpaws/inpaws /bin/inpaws
+COPY --from=build /usr/local/bin/ /usr/local/bin/
+COPY --from=build /usr/local/lib/python3.12/dist-packages/skoolkit/ /usr/local/lib/python3.12/dist-packages/skoolkit/
 COPY --from=z88dk /opt/z88dk/bin /opt/z88dk/bin
 COPY --from=z88dk /opt/z88dk/lib /opt/z88dk/lib
 COPY --from=z88dk /opt/z88dk/include /opt/z88dk/include
