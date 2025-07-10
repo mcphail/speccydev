@@ -29,8 +29,7 @@ clean:
 	rm -f *.zx0
 	rm -rf .tmp/
 
-start_new_project:
-	make clean
+start_new_project: clean
 	rm -rf .git
 	git init -b main
 	git add .devcontainer/ .vscode/ .gitignore
