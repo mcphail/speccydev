@@ -33,6 +33,7 @@ The devcontainer contains:
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
+    - various tools including nextcreator.py to build .nex files
 - ttttt (converts binaries into .tap blocks)
 - inpaws (interactive fiction compiler/extractor for Gilsoft's PAW)
 - skoolkit (tools for creating browseable disassemblies of Spectrum games)

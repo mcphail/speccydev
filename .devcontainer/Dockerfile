@@ -90,14 +90,13 @@ COPY --from=build /zxbasic/zxbasm.py /opt/zxbasic/zxbasm
 COPY --from=build /zxbasic/zxbc.py /opt/zxbasic/zxbc
 COPY --from=build /zxbasic/zxbpp.py /opt/zxbasic/zxbpp
 COPY --from=build /zxbasic/src /opt/zxbasic/src
+COPY --from=build /zxbasic/tools /opt/zxbasic/tools
 COPY --from=build /inpaws/inpaws /bin/inpaws
 COPY --from=build /usr/local/bin/ /usr/local/bin/
 COPY --from=build /usr/local/lib/python3.12/dist-packages/skoolkit/ /usr/local/lib/python3.12/dist-packages/skoolkit/
 COPY --from=z88dk /opt/z88dk/bin /opt/z88dk/bin
 COPY --from=z88dk /opt/z88dk/lib /opt/z88dk/lib
 COPY --from=z88dk /opt/z88dk/include /opt/z88dk/include
-ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic"
+ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools"
 ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu
-RUN echo "PATH=$PATH:/opt/z88dk/bin:/opt/zxbasic" >> ~/.profile
-RUN echo "export ZCCCFG=/opt/z88dk/lib/config/" >> ~/.profile
