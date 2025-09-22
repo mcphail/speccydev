@@ -24,10 +24,11 @@ RUN cd /inpaws/ \
 	&& make -j8
 RUN python3 -m pip install --break-system-packages skoolkit
 
-FROM build AS z88dk
+FROM ubuntu:24.04 AS z88dk
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	bison \
+	build-essential \
 	ca-certificates \
 	ccache \
 	cpanminus \
@@ -50,6 +51,7 @@ RUN apt-get update \
 	libxml2-dev \
 	libyaml-perl \
 	m4 \
+	make \
 	perl \
 	pkg-config \
 	ragel \
@@ -60,12 +62,11 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 ENV Z88DK_PATH="/opt/z88dk"
 RUN cpanm -l $HOME/perl5 --no-wget local::lib Template::Plugin::YAML \
-	&& git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
+	&& git clone --depth 1 --branch v2.3 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
 	&& cd ${Z88DK_PATH} \ 
 	&& eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
 	&& chmod 777 build.sh \
-	&& sed -i -e "s/make/make -j8/g" build.sh \
-	&& BUILD_SDCC=1 BUILD_SDCC_HTTP=1 ./build.sh \
+	&& BUILD_SDCC=1 BUILD_SDCC_HTTP=1 MAKE_CONCURRENCY=-j8 ./build.sh \
 	&& make install-clean bins-clean 
 
 FROM ubuntu:24.04

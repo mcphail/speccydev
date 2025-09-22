@@ -1,15 +1,15 @@
-# Development tools for the ZX Spectrum
+# Development tools for the ZX Spectrum v1.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
 The devcontainer contains:
-- pasmo (assembler)
-- sjasmplus (assembler)
-- z80asm (assembler)
-- z80dasm (disassembler)
-- zmakebas (creates BASIC programs)
-- z88dk (C compiler and other utilities including assembler)
-- utilities from the FUSE emulator:
+- pasmo version 0.5.3 (assembler)
+- sjasmplus version 1.21.0 (assembler)
+- z80asm version 1.8 (assembler)
+- z80dasm version 1.1.6 (disassembler)
+- zmakebas version 1.2b (creates BASIC programs)
+- z88dk version 2.3 (C compiler and other utilities including assembler)
+- utilities from the FUSE emulator version 1.4.3:
     - audio2tape
     - createhdf
     - fmfconv
@@ -29,14 +29,14 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
-- ZX BASIC (aka Boriel BASIC)
+- ZX BASIC (aka Boriel BASIC) version 1.18.2
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
     - various tools including nextcreator.py to build .nex files
 - ttttt (converts binaries into .tap blocks)
-- inpaws (interactive fiction compiler/extractor for Gilsoft's PAW)
-- skoolkit (tools for creating browseable disassemblies of Spectrum games)
+- inpaws version 1.0.2 (interactive fiction compiler/extractor for Gilsoft's PAW)
+- skoolkit version 9.6 (tools for creating browseable disassemblies of Spectrum games)
     - sna2ctl.py
     - sna2skool.py
     - skool2html.py
@@ -82,6 +82,12 @@ If you have installed the Dev Containers extension correctly, a popup will offer
 Open the bottom bar in vscode to expose the terminal or select "Terminal -> New Terminal" from the menu bar. Try running some Linux commands like `ls -lh` or `date`. Build the example project by running `make` from the terminal or the VSCode extension. Experiment with editing some of the source files and running `make` again. Experiment with some of the assemblers, compilers and other tools mentioned above. The `Makefile` contains example usage of tools like sjasmplus, zmakebas, Boriel's BASIC and the FUSE utilities.
 
 When you are ready to start your own project, run `make start_new_project` to wipe out the example code and start afresh.
+
+## Versions
+
+This `main` branch of this repository will always point to the latest numbered release of the devcontainer image. This image will contain specific, numbered releases of the various tools as documented above. If the devcontainer is updated with non-breaking changes, the minor version number will be incremented. This gives reassurance that, say, a v1.7 devcontainer will contain tools which can compile programs made with a v1.2 devcontainer without issue.
+
+If there is a breaking change in the tools, the major version number will be incremented. So a v2.0 devcontainer may not build projects made in a v1.7 devcontainer correctly. Please ensure all your collaborators are using appropriate devcontainer versions.
 
 ## Debugging
 
