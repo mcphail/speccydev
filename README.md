@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v1.1
+# Development tools for the ZX Spectrum v1.2
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 

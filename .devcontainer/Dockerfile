@@ -75,6 +75,7 @@ RUN apt-get update \
 	ca-certificates \
 	fuse-emulator-utils \
 	git \
+	m4 \
 	make \
 	openssh-client \
 	pasmo \
