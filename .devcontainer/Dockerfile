@@ -95,9 +95,7 @@ COPY --from=build /zxbasic/tools /opt/zxbasic/tools
 COPY --from=build /inpaws/inpaws /bin/inpaws
 COPY --from=build /usr/local/bin/ /usr/local/bin/
 COPY --from=build /usr/local/lib/python3.12/dist-packages/skoolkit/ /usr/local/lib/python3.12/dist-packages/skoolkit/
-COPY --from=z88dk /opt/z88dk/bin /opt/z88dk/bin
-COPY --from=z88dk /opt/z88dk/lib /opt/z88dk/lib
-COPY --from=z88dk /opt/z88dk/include /opt/z88dk/include
+COPY --from=z88dk /opt/z88dk/ /opt/z88dk/
 ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools"
 ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu
