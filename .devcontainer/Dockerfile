@@ -62,7 +62,7 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 ENV Z88DK_PATH="/opt/z88dk"
 RUN cpanm -l $HOME/perl5 --no-wget local::lib Template::Plugin::YAML \
-	&& git clone --depth 1 --branch v2.3 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
+	&& git clone --depth 1 --branch v2.4 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
 	&& cd ${Z88DK_PATH} \ 
 	&& eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
 	&& chmod 777 build.sh \

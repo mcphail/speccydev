@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v1.2
+# Development tools for the ZX Spectrum v2.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -8,7 +8,7 @@ The devcontainer contains:
 - z80asm version 1.8 (assembler)
 - z80dasm version 1.1.6 (disassembler)
 - zmakebas version 1.2b (creates BASIC programs)
-- z88dk version 2.3 (C compiler and other utilities including assembler)
+- z88dk version 2.4 (C compiler and other utilities including assembler)
 - utilities from the FUSE emulator version 1.4.3:
     - audio2tape
     - createhdf
@@ -59,6 +59,10 @@ The devcontainer contains:
 Several useful VSCode extentsions will be installed, including a Z80 assembly language server, Z80 and C debugger, Makefile support, BASIC syntax highlighter and more.
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
+
+## Breaking changes from v1.x
+
+The newest release of z88dk has been included. This brings substantial improvements over v2.3, but I cannot guarantee it will compile your code in the same way. If this causes problems, please use an older version of the devcontainer.
 
 ## Install
 
