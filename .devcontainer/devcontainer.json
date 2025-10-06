@@ -2,10 +2,11 @@
 	"name": "ZX Spectrum dev tools",
 	//"build": { "dockerfile": "Dockerfile" },
 	// The Dockerfile takes an age to build due to z88dk, so pull from prebuilt:
-	"image": "boarstone.mcphail.uk/mcphail/speccydev:v2.0",
+	"image": "boarstone.mcphail.uk/mcphail/speccydev:test1",
 	"remoteUser": "ubuntu",
 	"runArgs": [
-		"--network=host"
+		"--network=host",
+		"--platform=linux/amd64"
 	],
 	"customizations": {
 		"vscode": {
