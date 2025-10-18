@@ -20,7 +20,7 @@ ADD https://github.com/einar-saukas/ZX0.git /zx0
 RUN cd /zx0/src/ \
 	&& gcc -O2 -o zx0 zx0.c optimize.c compress.c memory.c \
 	&& gcc -O2 -o dzx0 dzx0.c
-ADD https://www.boriel.com/files/zxb/zxbasic-1.18.2-linux64.tar.gz .
+ADD https://www.boriel.com/files/zxb/zxbasic-1.18.3-linux64.tar.gz .
 RUN tar xf zxbasic*
 ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \
