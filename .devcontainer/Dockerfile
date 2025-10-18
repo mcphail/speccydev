@@ -3,6 +3,8 @@
 FROM ubuntu:24.04 AS build
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
+	autoconf \
+	automake \
 	build-essential \
 	make \
 	python3-pip \
@@ -23,6 +25,15 @@ ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \
 	&& make -j8
 RUN python3 -m pip install --break-system-packages skoolkit
+ADD https://github.com/gasman/hdfmonkey.git /hdfmonkey
+RUN cd /hdfmonkey/ \
+	&& autoheader \
+	&& aclocal \
+	&& autoconf \
+	&& automake -a \
+	&& ./configure \
+	&& make -j16 \
+	&& make install
 
 FROM ubuntu:24.04 AS z88dk
 RUN apt-get update \
@@ -96,6 +107,7 @@ COPY --from=build /zxbasic/tools /opt/zxbasic/tools
 COPY --from=build /inpaws/inpaws /bin/inpaws
 COPY --from=build /usr/local/bin/ /usr/local/bin/
 COPY --from=build /usr/local/lib/python3.12/dist-packages/skoolkit/ /usr/local/lib/python3.12/dist-packages/skoolkit/
+COPY --from=build /usr/local/bin/hdfmonkey /bin/hdfmonkey
 COPY --from=z88dk /opt/z88dk/ /opt/z88dk/
 ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools"
 ENV ZCCCFG="/opt/z88dk/lib/config"
