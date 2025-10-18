@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v2.0
+# Development tools for the ZX Spectrum v3.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -29,7 +29,7 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
-- ZX BASIC (aka Boriel BASIC) version 1.18.2
+- ZX BASIC (aka Boriel BASIC) version 1.18.3
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
@@ -53,6 +53,8 @@ The devcontainer contains:
     - bin2sna.py
     - snapmod.py
     - sna2img.py
+- pasta80 version 0.96 (PASCAL compiler)
+- hdfmonkey version 0.4 (for manipulating sdcard files for the Spectrum Next)
 - git (version control)
 - make (build control)
 
@@ -60,9 +62,15 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v1.x
+## Breaking changes from v2.x
 
-The newest release of z88dk has been included. This brings substantial improvements over v2.3, but I cannot guarantee it will compile your code in the same way. If this causes problems, please use an older version of the devcontainer.
+Boriel BASIC (zxbasic) has been updated. This version corrects a bug when referencing array data from assembly language. Code reliant on the old, faulty, behaviour may break.
+
+## New additions from v2.x
+
+The `pasta80` PASCAL compiler has been added. Example code is in `/opt/pasta80/examples`. Invoke the compiler by running `pasta`. A fun feature is that it can run in an IDE mode with vscode integration by running `pasta --ide`!
+
+`hdfmonkey` is a useful tool for manipulating the sdcard images needed for the Spectrum Next and its emulators.
 
 ## Install
 
@@ -124,3 +132,7 @@ ttttt - placed under Public Domain by Neil McPhail
 inpaws - copyright "Mastodon" and released under GPL v3
 
 skoolkit - copyright Richard Dymond and Philip M Anderson and released under GPL v3 or later
+
+hdfmonkey - copyright Matt Westcott and released under GPL v3
+
+PASTA/80 - copyright Jörg Pleumann and released under GPL v3 with linking exception
