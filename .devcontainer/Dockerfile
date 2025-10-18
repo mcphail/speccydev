@@ -6,6 +6,7 @@ RUN apt-get update \
 	autoconf \
 	automake \
 	build-essential \
+	fpc \
 	make \
 	python3-pip \
 	unzip \
@@ -34,6 +35,9 @@ RUN cd /hdfmonkey/ \
 	&& ./configure \
 	&& make -j16 \
 	&& make install
+ADD https://github.com/pleumann/pasta80.git#v0.96 /opt/pasta80
+RUN cd /opt/pasta80 \
+	&& fpc pasta
 
 FROM ubuntu:24.04 AS z88dk
 RUN apt-get update \
@@ -108,7 +112,8 @@ COPY --from=build /inpaws/inpaws /bin/inpaws
 COPY --from=build /usr/local/bin/ /usr/local/bin/
 COPY --from=build /usr/local/lib/python3.12/dist-packages/skoolkit/ /usr/local/lib/python3.12/dist-packages/skoolkit/
 COPY --from=build /usr/local/bin/hdfmonkey /bin/hdfmonkey
+COPY --from=build /opt/pasta80 /opt/pasta80
 COPY --from=z88dk /opt/z88dk/ /opt/z88dk/
-ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools"
+ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools:/opt/pasta80"
 ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu
