@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v3.0
+# Development tools for the ZX Spectrum v4.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -29,7 +29,7 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
-- ZX BASIC (aka Boriel BASIC) version 1.18.3
+- ZX BASIC (aka Boriel BASIC) version 1.18.4
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
@@ -62,9 +62,9 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v2.x
+## Breaking changes from v3.x
 
-Boriel BASIC (zxbasic) has been updated. This version corrects a bug when referencing array data from assembly language. Code reliant on the old, faulty, behaviour may break.
+Boriel BASIC (zxbasic) has been updated. There have been further bug fixes to array referencing which may break old code reliant on previous behaviour.
 
 ## New additions from v2.x
 
