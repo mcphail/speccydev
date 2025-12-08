@@ -109,7 +109,7 @@ Debug in the built in simulator or in CSpect externally (example CSpect invocati
 
 ## Licences
 
-pamso - copyright Julián Albo and released under the GPL
+pasmo - copyright Julián Albo and released under the GPL
 
 sjasmplus - copyright aprisobal and released under BSD 3-clause
 
