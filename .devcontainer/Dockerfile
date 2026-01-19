@@ -12,7 +12,7 @@ RUN apt-get update \
 	unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/z00m128/sjasmplus.git#v1.21.0 /sjasmplus
+ADD https://github.com/z00m128/sjasmplus.git#v1.21.1 /sjasmplus
 RUN cd /sjasmplus && make -j8 && make install
 ADD https://boarstone.mcphail.uk/mcphail/spectrum_remload.git /ttttt
 RUN cd /ttttt && make ttttt
@@ -20,7 +20,7 @@ ADD https://github.com/einar-saukas/ZX0.git /zx0
 RUN cd /zx0/src/ \
 	&& gcc -O2 -o zx0 zx0.c optimize.c compress.c memory.c \
 	&& gcc -O2 -o dzx0 dzx0.c
-ADD https://www.boriel.com/files/zxb/zxbasic-1.18.4-linux64.tar.gz .
+ADD https://www.boriel.com/files/zxb/zxbasic-1.18.5-linux64.tar.gz .
 RUN tar xf zxbasic*
 ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \

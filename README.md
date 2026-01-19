@@ -1,10 +1,10 @@
-# Development tools for the ZX Spectrum v4.0
+# Development tools for the ZX Spectrum v5.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
 The devcontainer contains:
 - pasmo version 0.5.3 (assembler)
-- sjasmplus version 1.21.0 (assembler)
+- sjasmplus version 1.21.1 (assembler)
 - z80asm version 1.8 (assembler)
 - z80dasm version 1.1.6 (disassembler)
 - zmakebas version 1.2b (creates BASIC programs)
@@ -29,7 +29,7 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
-- ZX BASIC (aka Boriel BASIC) version 1.18.4
+- ZX BASIC (aka Boriel BASIC) version 1.18.5
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
@@ -62,15 +62,13 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v3.x
+## Breaking changes from v4.x
 
-Boriel BASIC (zxbasic) has been updated. There have been further bug fixes to array referencing which may break old code reliant on previous behaviour.
+Boriel BASIC (zxbasic) has been updated. There have been further bug fixes to array bounds which may break old code reliant on previous behaviour.
 
-## New additions from v2.x
+## New additions from v4.x
 
-The `pasta80` PASCAL compiler has been added. Example code is in `/opt/pasta80/examples`. Invoke the compiler by running `pasta`. A fun feature is that it can run in an IDE mode with vscode integration by running `pasta --ide`!
-
-`hdfmonkey` is a useful tool for manipulating the sdcard images needed for the Spectrum Next and its emulators.
+`sjasmplus` has been updated with new features.
 
 ## Install
 
