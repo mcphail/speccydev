@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v5.1
+# Development tools for the ZX Spectrum v5.2
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -29,7 +29,7 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
-- ZX BASIC (aka Boriel BASIC) version 1.18.6
+- ZX BASIC (aka Boriel BASIC) version 1.18.7
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
@@ -66,9 +66,9 @@ Thanks to the many authors of these wonderful tools and extensions; to think wha
 
 Boriel BASIC (zxbasic) has been updated. There have been further bug fixes to array bounds which may break old code reliant on previous behaviour.
 
-## New additions from v5.0
+## New additions from v5.1
 
-Boriel BASIC updated for hotfix for broken zxnext builds.
+Boriel BASIC updated with bugfix for rounding error.
 
 ## Install
 
