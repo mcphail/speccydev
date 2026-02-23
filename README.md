@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v5.2
+# Development tools for the ZX Spectrum v6.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -57,18 +57,31 @@ The devcontainer contains:
 - hdfmonkey version 0.4 (for manipulating sdcard files for the Spectrum Next)
 - git (version control)
 - make (build control)
+- John Elliott's TAPTOOLS version 1.1.3
+    - specform (add +3DOS header to a file)
+    - unspecform (removes +3DOS header)
+    - tapcat (combines files into a .tap file)
+    - tapls (lists content of a .tap file)
+    - tapget (extracts one or more files from a .tap file)
+    - tapsplit (extracts everything from a .tap file in one go)
+    - tap2dsk (builds a +3 or PCDOS image from a .tap file)
+    - mkp3fs (builds a +3 or PCDOS image from separate files)
+    - bin2bas (wraps a machine code program in a 2-line BASIC program that runs it)
+    - sna2tap (converts a .sna format snapshot to a .tap file)
+    - sna2dsk (converts a .sna format snapshot to a .dsk file)
+    - dsk2tap (converts a .dsk image to a .tap file which when run on a +3 recreates the original disk)
 
 Several useful VSCode extentsions will be installed, including a Z80 assembly language server, Z80 and C debugger, Makefile support, BASIC syntax highlighter and more.
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v4.x
+## Breaking changes from v5.x
 
-Boriel BASIC (zxbasic) has been updated. There have been further bug fixes to array bounds which may break old code reliant on previous behaviour.
+Some of the binaries, such as `sjasmplus`, are now found in a different $PATH, which may break some existing build scripts.
 
-## New additions from v5.1
+## New additions from v5.2
 
-Boriel BASIC updated with bugfix for rounding error.
+Addition of TAPTOOLS.
 
 ## Install
 
@@ -134,3 +147,5 @@ skoolkit - copyright Richard Dymond and Philip M Anderson and released under GPL
 hdfmonkey - copyright Matt Westcott and released under GPL v3
 
 PASTA/80 - copyright Jörg Pleumann and released under GPL v3 with linking exception
+
+TAPTOOLS - copyright John Elliott and released under GPL v2
