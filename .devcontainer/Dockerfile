@@ -13,7 +13,7 @@ RUN apt-get update \
 	unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/z00m128/sjasmplus.git#v1.21.1 /sjasmplus
+ADD https://github.com/z00m128/sjasmplus.git#v1.23.0 /sjasmplus
 RUN cd /sjasmplus && make -j8 && make install
 ADD https://boarstone.mcphail.uk/mcphail/spectrum_remload.git /ttttt
 RUN cd /ttttt && make ttttt
@@ -36,7 +36,7 @@ RUN cd /hdfmonkey/ \
 	&& ./configure \
 	&& make -j16 \
 	&& make install
-ADD https://github.com/pleumann/pasta80.git#v0.96 /opt/pasta80
+ADD https://github.com/pleumann/pasta80.git#v0.98 /opt/pasta80
 RUN cd /opt/pasta80 \
 	&& fpc pasta
 ADD --unpack https://www.seasip.info/ZX/taptools-1.1.3.tar.gz taptools/

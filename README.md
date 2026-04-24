@@ -1,10 +1,10 @@
-# Development tools for the ZX Spectrum v6.0
+# Development tools for the ZX Spectrum v7.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
 The devcontainer contains:
 - pasmo version 0.5.3 (assembler)
-- sjasmplus version 1.21.1 (assembler)
+- sjasmplus version 1.23.0 (assembler)
 - z80asm version 1.8 (assembler)
 - z80dasm version 1.1.6 (disassembler)
 - zmakebas version 1.2b (creates BASIC programs)
@@ -36,7 +36,7 @@ The devcontainer contains:
     - various tools including nextcreator.py to build .nex files
 - ttttt (converts binaries into .tap blocks)
 - inpaws version 1.0.2 (interactive fiction compiler/extractor for Gilsoft's PAW)
-- skoolkit version 9.6 (tools for creating browseable disassemblies of Spectrum games)
+- skoolkit version 10.0 (tools for creating browseable disassemblies of Spectrum games)
     - sna2ctl.py
     - sna2skool.py
     - skool2html.py
@@ -53,7 +53,7 @@ The devcontainer contains:
     - bin2sna.py
     - snapmod.py
     - sna2img.py
-- pasta80 version 0.96 (PASCAL compiler)
+- pasta80 version 0.98 (PASCAL compiler)
 - hdfmonkey version 0.4 (for manipulating sdcard files for the Spectrum Next)
 - git (version control)
 - make (build control)
@@ -75,13 +75,13 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v5.x
+## Breaking changes from v6.x
 
-Some of the binaries, such as `sjasmplus`, are now found in a different $PATH, which may break some existing build scripts.
+The new version of SkoolKit has some minor incompatibilities with previous versions.
 
-## New additions from v5.2
+## New additions from v6.0
 
-Addition of TAPTOOLS.
+Updated versions of SkoolKit, pasta80 and sjasmplus.
 
 ## Install
 
