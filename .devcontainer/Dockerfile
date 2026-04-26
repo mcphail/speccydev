@@ -41,6 +41,7 @@ RUN cd /opt/pasta80 \
 	&& fpc pasta
 ADD --unpack https://www.seasip.info/ZX/taptools-1.1.3.tar.gz taptools/
 RUN cd taptools/taptools* \
+	&& cp /usr/share/automake-1.16/config.guess . \
 	&& ./configure \
 	&& make -j8 \
 	&& make install
