@@ -88,7 +88,7 @@ RUN cpanm -l $HOME/perl5 --no-wget local::lib Template::Plugin::YAML \
 	&& cd ${Z88DK_PATH} \ 
 	&& eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
 	&& chmod 777 build.sh \
-	&& BUILD_SDCC=1 BUILD_SDCC_HTTP=1 MAKE_CONCURRENCY=-j8 ./build.sh \
+	&& BUILD_SDCC=1 BUILD_SDCC_HTTP=1 ./build.sh \
 	&& make install-clean bins-clean 
 
 FROM ubuntu:24.04
