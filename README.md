@@ -106,6 +106,12 @@ Open the bottom bar in vscode to expose the terminal or select "Terminal -> New 
 
 When you are ready to start your own project, run `make start_new_project` to wipe out the example code and start afresh.
 
+## Add the devcontainer to your existing project
+
+```bash
+curl https://raw.githubusercontent.com/mcphail/speccydev/refs/heads/main/.devcontainer/devcontainer.json -o .devcontainer.json
+```
+
 ## Versions
 
 This `main` branch of this repository will always point to the latest numbered release of the devcontainer image. This image will contain specific, numbered releases of the various tools as documented above. If the devcontainer is updated with non-breaking changes, the minor version number will be incremented. This gives reassurance that, say, a v1.7 devcontainer will contain tools which can compile programs made with a v1.2 devcontainer without issue.
