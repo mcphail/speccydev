@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v7.0
+# Development tools for the ZX Spectrum v8.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -75,13 +75,13 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v6.x
+## Breaking changes from v7.x
 
-The new version of SkoolKit has some minor incompatibilities with previous versions.
+No breaking changes, but this version brings full support for Apple silicon which was not present in previous releases.
 
-## New additions from v6.0
+## New additions from v7.0
 
-Updated versions of SkoolKit, pasta80 and sjasmplus.
+Native arm64 build for Apple devices.
 
 ## Install
 
