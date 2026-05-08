@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # My current workflow is to build this on an M1 MacBook for both amd64 and arm64 using:
-# docker buildx build --platform linux/arm64/v8,linux/amd64 -t boarstone.mcphail.uk/mcphail/speccydev:tagname .
+# docker buildx build --platform linux/arm64/v8,linux/amd64 -t njmcphail/speccydev:tagname .
 
 FROM ubuntu:24.04 AS build
 RUN apt-get update \
@@ -84,7 +84,7 @@ COPY --from=build /opt/pasta80 /opt/pasta80
 # is in a subdirectory of this one. If you're building the container yourself you may
 # want to alter the next line to your own tagged build of z88dk but you're welcome to
 # use mine.
-COPY --from=boarstone.mcphail.uk/mcphail/z88dk:v2.4 /opt/z88dk/ /opt/z88dk/
+COPY --from=njmcphail/z88dk:v2.4 /opt/z88dk/ /opt/z88dk/
 ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools:/opt/pasta80"
 ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu

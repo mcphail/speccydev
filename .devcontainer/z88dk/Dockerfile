@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Similar to the speccydev container, I'm building this with:
-# docker buildx build --platform linux/arm64/v8,linux/amd64 -t boarstone.mcphail.uk/mcphail/z88dk:tagname .
+# docker buildx build --platform linux/arm64/v8,linux/amd64 -t njmcphail/z88dk:tagname .
 
 FROM ubuntu:24.04 AS build
 RUN apt-get update \

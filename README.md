@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v8.0
+# Development tools for the ZX Spectrum v8.1
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -79,9 +79,9 @@ Thanks to the many authors of these wonderful tools and extensions; to think wha
 
 No breaking changes, but this version brings full support for Apple silicon which was not present in previous releases.
 
-## New additions from v7.0
+## New additions from v8.0
 
-Native arm64 build for Apple devices.
+The prebuilt container is now hosted on Docker Hub, as the Gitea hosting platform was having reliability issues. The contents of the 8.1 container are unchanged from 8.0 so there is no need to update if you have downloaded this already.
 
 ## Install
 
