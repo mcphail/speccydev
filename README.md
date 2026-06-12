@@ -1,10 +1,10 @@
-# Development tools for the ZX Spectrum v8.1
+# Development tools for the ZX Spectrum v8.2
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
 The devcontainer contains:
 - pasmo version 0.5.3 (assembler)
-- sjasmplus version 1.23.0 (assembler)
+- sjasmplus version 1.23.1 (assembler)
 - z80asm version 1.8 (assembler)
 - z80dasm version 1.1.6 (disassembler)
 - zmakebas version 1.2b (creates BASIC programs)
@@ -79,9 +79,9 @@ Thanks to the many authors of these wonderful tools and extensions; to think wha
 
 No breaking changes, but this version brings full support for Apple silicon which was not present in previous releases.
 
-## New additions from v8.0
+## New additions from v8.1
 
-The prebuilt container is now hosted on Docker Hub, as the Gitea hosting platform was having reliability issues. The contents of the 8.1 container are unchanged from 8.0 so there is no need to update if you have downloaded this already.
+Minor version update for sjasmplus.
 
 ## Install
 

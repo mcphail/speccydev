@@ -16,7 +16,7 @@ RUN apt-get update \
 	unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/z00m128/sjasmplus.git#v1.23.0 /sjasmplus
+ADD https://github.com/z00m128/sjasmplus.git#v1.23.1 /sjasmplus
 RUN cd /sjasmplus && make -j8 && make install
 ADD https://boarstone.mcphail.uk/mcphail/spectrum_remload.git /ttttt
 RUN cd /ttttt && make ttttt
