@@ -2,7 +2,7 @@
 	"name": "ZX Spectrum dev tools",
 	//"build": { "dockerfile": "Dockerfile" },
 	// The Dockerfile takes an age to build due to z88dk, so pull from prebuilt:
-	"image": "njmcphail/speccydev:v8.2",
+	"image": "njmcphail/speccydev:v8.3",
 	"remoteUser": "ubuntu",
 	"runArgs": [
 		"--network=host"

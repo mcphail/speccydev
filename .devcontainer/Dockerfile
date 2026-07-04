@@ -39,7 +39,7 @@ RUN cd /hdfmonkey/ \
 	&& ./configure \
 	&& make -j16 \
 	&& make install
-ADD https://github.com/pleumann/pasta80.git#v0.98 /opt/pasta80
+ADD https://github.com/pleumann/pasta80.git#v0.99 /opt/pasta80
 RUN cd /opt/pasta80 \
 	&& fpc pasta
 ADD --unpack https://www.seasip.info/ZX/taptools-1.1.3.tar.gz taptools/

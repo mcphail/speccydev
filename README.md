@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v8.2
+# Development tools for the ZX Spectrum v8.3
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -53,7 +53,7 @@ The devcontainer contains:
     - bin2sna.py
     - snapmod.py
     - sna2img.py
-- pasta80 version 0.98 (PASCAL compiler)
+- pasta80 version 0.99 (PASCAL compiler)
 - hdfmonkey version 0.4 (for manipulating sdcard files for the Spectrum Next)
 - git (version control)
 - make (build control)
@@ -79,9 +79,9 @@ Thanks to the many authors of these wonderful tools and extensions; to think wha
 
 No breaking changes, but this version brings full support for Apple silicon which was not present in previous releases.
 
-## New additions from v8.1
+## New additions from v8.2
 
-Minor version update for sjasmplus.
+Minor version update for pasta80.
 
 ## Install
 
