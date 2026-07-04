@@ -6,3 +6,4 @@
 *.block
 *.zx0
 *.bin
+.DS_Store
