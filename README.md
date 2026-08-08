@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v8.3
+# Development tools for the ZX Spectrum v9.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -29,7 +29,7 @@ The devcontainer contains:
     - tzxlist
 - zx0 (binary compressor)
 - dzx0 (binary decompressor)
-- ZX BASIC (aka Boriel BASIC) version 1.18.7
+- ZX BASIC (aka Boriel BASIC) version 1.19.0
     - zxbc (BASIC compiler)
     - zxbasm (assembler)
     - zxbpp (preprocessor)
@@ -75,13 +75,13 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v7.x
+## Breaking changes from v8.x
 
-No breaking changes, but this version brings full support for Apple silicon which was not present in previous releases.
+The base has been updated from Ubuntu 24.04 to Ubuntu 26.04, largely to bring in python 3.14 which is required for the current release of Boriel BASIC. This may cause some issues, so please report bugs. z88dk is still being built on 24.04 but should be ABI compatible. Again, please report any bugs you find.
 
-## New additions from v8.2
+## New additions from v8.3
 
-Minor version update for pasta80.
+Minor version update for Boriel BASIC.
 
 ## Install
 

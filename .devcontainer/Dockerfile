@@ -3,7 +3,7 @@
 # My current workflow is to build this on an M1 MacBook for both amd64 and arm64 using:
 # docker buildx build --platform linux/arm64/v8,linux/amd64 -t njmcphail/speccydev:tagname .
 
-FROM ubuntu:24.04 AS build
+FROM ubuntu:26.04 AS build
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	autoconf \
@@ -24,8 +24,7 @@ ADD https://github.com/einar-saukas/ZX0.git /zx0
 RUN cd /zx0/src/ \
 	&& gcc -O2 -o zx0 zx0.c optimize.c compress.c memory.c \
 	&& gcc -O2 -o dzx0 dzx0.c
-ADD https://www.boriel.com/files/zxb/zxbasic-1.18.7-linux64.tar.gz .
-RUN tar xf zxbasic*
+ADD --unpack https://www.boriel.com/files/zxb/zxbasic-1.19.0-linux64.tar.gz .
 ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \
 	&& make -j8
@@ -44,12 +43,12 @@ RUN cd /opt/pasta80 \
 	&& fpc pasta
 ADD --unpack https://www.seasip.info/ZX/taptools-1.1.3.tar.gz taptools/
 RUN cd taptools/taptools* \
-	&& cp /usr/share/automake-1.16/config.guess . \
+	&& cp /usr/share/automake-1.18/config.guess . \
 	&& ./configure \
 	&& make -j8 \
 	&& make install
 
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	ca-certificates \
@@ -76,7 +75,7 @@ COPY --from=build /zxbasic/src /opt/zxbasic/src
 COPY --from=build /zxbasic/tools /opt/zxbasic/tools
 COPY --from=build /inpaws/inpaws /bin/inpaws
 COPY --from=build /usr/local/bin/ /usr/local/bin/
-COPY --from=build /usr/local/lib/python3.12/dist-packages/skoolkit/ /usr/local/lib/python3.12/dist-packages/skoolkit/
+COPY --from=build /usr/local/lib/python3.14/dist-packages/skoolkit/ /usr/local/lib/python3.14/dist-packages/skoolkit/
 COPY --from=build /opt/pasta80 /opt/pasta80
 
 # z88dk takes a long time to cross compile so I'm keeping this in a separate container
