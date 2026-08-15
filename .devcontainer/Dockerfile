@@ -28,7 +28,7 @@ ADD --unpack https://www.boriel.com/files/zxb/zxbasic-1.19.0-linux64.tar.gz .
 ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \
 	&& make -j8
-RUN python3 -m pip install --break-system-packages skoolkit
+RUN python3 -m pip install --force-reinstall --break-system-packages skoolkit==10.1
 ADD https://github.com/gasman/hdfmonkey.git /hdfmonkey
 RUN cd /hdfmonkey/ \
 	&& autoheader \

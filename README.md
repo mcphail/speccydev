@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v9.0
+# Development tools for the ZX Spectrum v9.1
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -36,7 +36,7 @@ The devcontainer contains:
     - various tools including nextcreator.py to build .nex files
 - ttttt (converts binaries into .tap blocks)
 - inpaws version 1.0.2 (interactive fiction compiler/extractor for Gilsoft's PAW)
-- skoolkit version 10.0 (tools for creating browseable disassemblies of Spectrum games)
+- skoolkit version 10.1 (tools for creating browseable disassemblies of Spectrum games)
     - sna2ctl.py
     - sna2skool.py
     - skool2html.py
@@ -79,9 +79,9 @@ Thanks to the many authors of these wonderful tools and extensions; to think wha
 
 The base has been updated from Ubuntu 24.04 to Ubuntu 26.04, largely to bring in python 3.14 which is required for the current release of Boriel BASIC. This may cause some issues, so please report bugs. z88dk is still being built on 24.04 but should be ABI compatible. Again, please report any bugs you find.
 
-## New additions from v8.3
+## New additions from v9.0
 
-Minor version update for Boriel BASIC.
+Minor version update for skoolkit.
 
 ## Install
 
