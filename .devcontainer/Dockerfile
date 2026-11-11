@@ -28,7 +28,7 @@ ADD --unpack https://www.boriel.com/files/zxb/zxbasic-1.19.0-linux64.tar.gz .
 ADD https://github.com/Mastodon-/inpaws.git /inpaws
 RUN cd /inpaws/ \
 	&& make -j8
-RUN python3 -m pip install --force-reinstall --break-system-packages skoolkit==10.1
+RUN python3 -m pip install --force-reinstall --break-system-packages skoolkit==10.2
 ADD https://github.com/gasman/hdfmonkey.git /hdfmonkey
 RUN cd /hdfmonkey/ \
 	&& autoheader \
@@ -83,7 +83,7 @@ COPY --from=build /opt/pasta80 /opt/pasta80
 # is in a subdirectory of this one. If you're building the container yourself you may
 # want to alter the next line to your own tagged build of z88dk but you're welcome to
 # use mine.
-COPY --from=njmcphail/z88dk:v2.4 /opt/z88dk/ /opt/z88dk/
+COPY --from=njmcphail/z88dk:2.5 /opt/z88dk/ /opt/z88dk/
 ENV PATH="${PATH}:/opt/z88dk/bin:/opt/zxbasic:/opt/zxbasic/tools:/opt/pasta80"
 ENV ZCCCFG="/opt/z88dk/lib/config"
 USER ubuntu

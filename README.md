@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v9.2
+# Development tools for the ZX Spectrum v10.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -8,7 +8,7 @@ The devcontainer contains:
 - z80asm version 1.8 (assembler)
 - z80dasm version 1.1.6 (disassembler)
 - zmakebas version 1.2b (creates BASIC programs)
-- z88dk version 2.4 (C compiler and other utilities including assembler)
+- z88dk version 2.5 (C compiler and other utilities including assembler)
 - utilities from the FUSE emulator version 1.4.3:
     - audio2tape
     - createhdf
@@ -36,7 +36,7 @@ The devcontainer contains:
     - various tools including nextcreator.py to build .nex files
 - ttttt (converts binaries into .tap blocks)
 - inpaws version 1.0.2 (interactive fiction compiler/extractor for Gilsoft's PAW)
-- skoolkit version 10.1 (tools for creating browseable disassemblies of Spectrum games)
+- skoolkit version 10.2 (tools for creating browseable disassemblies of Spectrum games)
     - sna2ctl.py
     - sna2skool.py
     - skool2html.py
@@ -75,13 +75,13 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v8.x
+## Breaking changes from v9.x
 
-The base has been updated from Ubuntu 24.04 to Ubuntu 26.04, largely to bring in python 3.14 which is required for the current release of Boriel BASIC. This may cause some issues, so please report bugs. z88dk is still being built on 24.04 but should be ABI compatible. Again, please report any bugs you find.
+There has been a new release of z88dk with many thousands of changes, including new compiler frontends and altered configuration syntax. Expect existing projects to break! This is a large release so please let me know in a GitHub issue if I have broken anything in my build.
 
-## New additions from v9.1
+## New additions from v9.2
 
-Minor version update for sjasmplus.
+New releases of z88dk and skoolkit.
 
 ## Install
 
