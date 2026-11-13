@@ -1,4 +1,4 @@
-# Development tools for the ZX Spectrum v10.0
+# Development tools for the ZX Spectrum v11.0
 
 The Dockerfile is the basis of the devcontainer and can be changed to add or remove tools. It will take a long time to build locally, so by default the devcontainer will pull a prebuilt version. Edit `.devcontainer/devcontainer.json` if you would rather build your own.
 
@@ -53,7 +53,7 @@ The devcontainer contains:
     - bin2sna.py
     - snapmod.py
     - sna2img.py
-- pasta80 version 0.99 (PASCAL compiler)
+- pasta80 version 1.00 (PASCAL compiler)
 - hdfmonkey version 0.4 (for manipulating sdcard files for the Spectrum Next)
 - git (version control)
 - make (build control)
@@ -75,13 +75,13 @@ Several useful VSCode extentsions will be installed, including a Z80 assembly la
 
 Thanks to the many authors of these wonderful tools and extensions; to think what we could have made with these in 1985!
 
-## Breaking changes from v9.x
+## Breaking changes from v10.x
 
-There has been a new release of z88dk with many thousands of changes, including new compiler frontends and altered configuration syntax. Expect existing projects to break! This is a large release so please let me know in a GitHub issue if I have broken anything in my build.
+Congratulations to @pleumann on the v1.00 release of PASTA/80! This version changes the binary name from `pasta` to `pasta80` which may break existing scripts and makefiles.
 
-## New additions from v9.2
+## New additions from v10.0
 
-New releases of z88dk and skoolkit.
+Version 1.00 release of PASTA/80.
 
 ## Install
 
